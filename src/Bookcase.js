@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 // My Components
 import ButtonAppBar from './ButtonAppBar';
 import BookList from './BookList';
