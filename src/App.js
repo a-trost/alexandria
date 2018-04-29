@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
 // My Components
-import Welcome from "./Welcome";
 import Bookcase from "./Bookcase";
 import * as BooksAPI from "./BooksAPI";
 // Styles
