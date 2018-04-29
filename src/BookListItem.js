@@ -9,7 +9,8 @@ import ArrowDropDown from '@material-ui/icons/ArrowDropDown';
 function BookListItem(props) {
   return (
     <div>
-      {props.book.title}
+      <p>{props.book.title}</p>
+      <p>{props.book.authors}</p>
     <img src={props.book.imageLinks.thumbnail} alt={props.book.title} className="book-list-item" />
     <Button variant="fab" color="primary" className="book-list-item-btn" ><ArrowDropDown style={{ fontSize: 36 }} /></Button>
     </div>
