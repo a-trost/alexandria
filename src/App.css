@@ -2,9 +2,11 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.book-list-item {
+  box-shadow: 2px 2px 5px #616161b1;
+  width: 100%;
+  height: auto;
+  position: relative;
 }
 .book-list-container {
   margin: 20px;
