@@ -9,6 +9,7 @@ import "./App.css";
 class App extends Component {
   constructor(props) {
     super(props);
+    this.handleSearchChange = this.handleSearchChange.bind(this);
     this.state = {
       user: {},
       books: [],
