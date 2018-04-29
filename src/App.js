@@ -6,6 +6,13 @@ import * as BooksAPI from "./BooksAPI";
 // Styles
 import "./App.css";
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: {},
+      books: []
+    };
+  }
   componentDidMount() {
     try {
       const userJson = localStorage.getItem("user");
