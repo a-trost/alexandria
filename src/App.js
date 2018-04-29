@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Route } from "react-router-dom";
 // My Components
 import Bookcase from "./Bookcase";
+import Search from "./Search";
 import * as BooksAPI from "./BooksAPI";
 // Styles
 import "./App.css";
