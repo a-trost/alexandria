@@ -58,6 +58,17 @@ class App extends Component {
           path="/"
           render={props => <Bookcase {...props} books={this.state.books} />}
         />
+        <Route
+          path="/search"
+          render={props => (
+            <Search
+              {...props}
+              books={this.state.searchResults}
+              searchQuery={this.state.searchQuery}
+              handleSearchChange={this.handleSearchChange}
+            />
+          )}
+        />
       </div>
     );
   }
