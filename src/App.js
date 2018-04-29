@@ -30,7 +30,24 @@ class App extends Component {
   componentDidUpdate(prevProps, prevState) {
     if (prevState.user !== this.state.user) {
       const json = JSON.stringify(this.state.user);
-      localStorage.setItem('user',json);
+      localStorage.setItem("user", json);
+    }
+  }
+
+  handleSearchChange(query) {
+    if (!query) {
+      this.setState({ searchQuery: "", searchResults: [] });
+    } else {
+      this.setState({ searchQuery: query });
+      BooksAPI.search(query)
+        .then(results => {
+          if (results.error) {
+            return (results = []);
+          } else {
+            return results;
+          }
+        })
+        .then(results => this.setState({ searchResults: results }));
     }
   }
   render() {
