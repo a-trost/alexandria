@@ -1,7 +1,11 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import React, { Component } from "react";
+import { Route } from "react-router-dom";
+// My Components
+import Welcome from "./Welcome";
+import Bookcase from "./Bookcase";
+import * as BooksAPI from "./BooksAPI";
+// Styles
+import "./App.css";
 class App extends Component {
     BooksAPI.getAll().then(books => this.setState({ books }));
   render() {
