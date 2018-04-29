@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+    BooksAPI.getAll().then(books => this.setState({ books }));
   render() {
     return (
       <div className="App">
