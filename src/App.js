@@ -7,6 +7,13 @@ import * as BooksAPI from "./BooksAPI";
 import "./App.css";
 class App extends Component {
     BooksAPI.getAll().then(books => this.setState({ books }));
+  }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.user !== this.state.user) {
+      const json = JSON.stringify(this.state.user);
+      localStorage.setItem('user',json);
+    }
+  }
   render() {
     return (
       <div className="App">
