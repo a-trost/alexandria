@@ -31,3 +31,9 @@ a {
   cursor: pointer;
   border-radius: 5px;
 }
+
+.add-book-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
