@@ -12,7 +12,15 @@ return (
     placeholder="Find your next book"
     onChange={e => props.handleSearchChange(e.target.value.trim())}
     />
-      {props.searchQuery && <BookList books={props.books}/>}
+      {props.searchQuery && (
+        <BookDisplayGrid
+          // bookShelf is the user's collection
+          bookShelf={props.bookShelf}
+          // books is the search results
+          books={props.books}
+          handleShelfChange={props.handleShelfChange}
+        />
+      )}
   </div>
 )
 };
