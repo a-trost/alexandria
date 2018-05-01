@@ -34,7 +34,6 @@ function ButtonAppBar(props) {
           <Typography variant="title" color="inherit" className={classes.flex}>
             Alexandria
           </Typography>
-          {/* <SearchInput/> */}
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
