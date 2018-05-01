@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 // My Components
 import ButtonAppBar from "./ButtonAppBar";
 import BookDisplayGrid from "./BookDisplayGrid";
@@ -7,8 +7,9 @@ function Search(props) {
 return (
   <div>
     <ButtonAppBar />
-
-    <input type="text" name="search"
+      <input
+        type="text"
+        name="search"
     placeholder="Find your next book"
     onChange={e => props.handleSearchChange(e.target.value.trim())}
     />
@@ -22,7 +23,7 @@ return (
         />
       )}
   </div>
-)
-};
+  );
+}
 
 export default Search;
