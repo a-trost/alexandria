@@ -32,7 +32,7 @@ function ButtonAppBar(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="title" color="inherit" className={classes.flex}>
-            Alexandria
+          <Link to="/"><span className="app-title">Alexandria</span></Link>
           </Typography>
           <Button color="inherit">Login</Button>
         </Toolbar>
