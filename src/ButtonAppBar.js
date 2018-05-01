@@ -7,7 +7,7 @@ import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
 import IconButton from 'material-ui/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-
+import { Link } from 'react-router-dom';
 
 const styles = {
   root: {
