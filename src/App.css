@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .book-list-item {
   box-shadow: 2px 2px 5px #616161b1;
   width: 100%;
