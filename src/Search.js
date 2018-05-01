@@ -1,7 +1,7 @@
 import React from 'react';
 // My Components
-import ButtonAppBar from './ButtonAppBar';
-import BookList from './BookList';
+import ButtonAppBar from "./ButtonAppBar";
+import BookDisplayGrid from "./BookDisplayGrid";
 
 function Search(props) {
 return (
