@@ -30,6 +30,7 @@ function BookDisplayGrid(props) {
   return (
     <div className={classes.root + " book-list-container"}>
       <Grid container spacing={24}>
+      {props.books.length===0 &&  <span className="empty-shelf">There are no books on this shelf. Go add some!</span>}
         {props.books &&
           props.books.map((book,index) => {
             return (

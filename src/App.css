@@ -37,3 +37,8 @@ a {
     bottom: 20px;
     right: 20px;
 }
+
+.empty-shelf {
+  margin:100px auto;
+  display:flex;
+}
