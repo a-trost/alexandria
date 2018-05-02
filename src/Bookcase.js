@@ -1,6 +1,7 @@
 import React from 'react';
 // My Components
 import ButtonAppBar from './ButtonAppBar';
+import FloatingAddButton from './FloatingAddButton'
 import Divider from 'material-ui/Divider';
 
 function Bookcase(props) {
