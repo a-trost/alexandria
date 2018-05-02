@@ -4,6 +4,7 @@
 import React from 'react';
 // My Components
 import ButtonAppBar from './ButtonAppBar';
+import BookDisplayGrid from './BookDisplayGrid';
 import FloatingAddButton from './FloatingAddButton'
 import Divider from 'material-ui/Divider';
 
