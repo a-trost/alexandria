@@ -4,15 +4,15 @@ import ButtonAppBar from "./ButtonAppBar";
 import BookDisplayGrid from "./BookDisplayGrid";
 
 function Search(props) {
-return (
-  <div>
-    <ButtonAppBar />
+  return (
+    <div>
+      <ButtonAppBar />
       <input
         type="text"
         name="search"
-    placeholder="Find your next book"
-    onChange={e => props.handleSearchChange(e.target.value.trim())}
-    />
+        placeholder="Find your next book"
+        onChange={e => props.handleSearchChange(e.target.value.trim())}
+      />
       {props.searchQuery && (
         <BookDisplayGrid
           // bookShelf is the user's collection
@@ -22,7 +22,7 @@ return (
           handleShelfChange={props.handleShelfChange}
         />
       )}
-  </div>
+    </div>
   );
 }
 

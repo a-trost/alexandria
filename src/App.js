@@ -93,6 +93,8 @@ class App extends Component {
               {...props}
               books={this.state.searchResults}
               searchQuery={this.state.searchQuery}
+              // Pass the user's book shelf to compare against the search results:
+              bookShelf={this.state.books}
               handleSearchChange={this.handleSearchChange}
               handleShelfChange={this.handleShelfChange}
             />
@@ -102,5 +104,4 @@ class App extends Component {
     );
   }
 }
-
 export default App;
