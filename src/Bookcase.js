@@ -1,3 +1,6 @@
+/*  
+    Holds the user's shelves in BookList components
+*/
 import React from 'react';
 // My Components
 import ButtonAppBar from './ButtonAppBar';
@@ -8,7 +11,6 @@ function Bookcase(props) {
   return (
   <div>
    <ButtonAppBar/>
-   {/* Display three shelves of books: "wantToRead", "currentlyReading", "read" */}
    <h2>Currently Reading</h2>
     <BookDisplayGrid 
     books={props.books.filter(book=>book.shelf === "currentlyReading")}
