@@ -10,6 +10,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.handleSearchChange = this.handleSearchChange.bind(this);
+    this.fetchBookList = this.fetchBookList.bind(this);
     this.handleShelfChange = this.handleShelfChange.bind(this);
     this.state = {
       user: {},
@@ -28,7 +29,7 @@ class App extends Component {
     } catch (e) {
       // Do nothing. If the data is corrupt we'll start from scratch.
     }
-    BooksAPI.getAll().then(books => this.setState({ books }));
+    this.fetchBookList();
   }
   componentDidUpdate(prevProps, prevState) {
     if (prevState.user !== this.state.user) {
