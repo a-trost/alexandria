@@ -9,11 +9,23 @@ function Bookcase(props) {
    <ButtonAppBar/>
    {/* Display three shelves of books: "wantToRead", "currentlyReading", "read" */}
    <h2>Currently Reading</h2>
-    <BookList books={props.books.filter(book=>book.shelf === "currentlyReading")}/>
+    <BookDisplayGrid 
+    books={props.books.filter(book=>book.shelf === "currentlyReading")}
+    handleShelfChange={props.handleShelfChange}
+    />
+    <Divider />
     <h2>Want To Read</h2>
-    <BookList books={props.books.filter(book=>book.shelf === "wantToRead")}/>
+    <BookDisplayGrid 
+    books={props.books.filter(book=>book.shelf === "wantToRead")}
+    handleShelfChange={props.handleShelfChange}
+    />
+    <Divider />
     <h2>Read</h2>
-    <BookList books={props.books.filter(book=>book.shelf === "read")}/>
+    <BookDisplayGrid 
+    books={props.books.filter(book=>book.shelf === "read")}
+    handleShelfChange={props.handleShelfChange}
+    />
+    <FloatingAddButton />
         </div>
     )
   }
