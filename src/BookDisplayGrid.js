@@ -1,12 +1,12 @@
 /*  
-    This takes a filter criteria and returns BookListItems that match it.
+    This takes a filter criteria and returns BookDisplayItems that match it.
     Runs off of a grid based layout
 */
 import React from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "material-ui/styles";
 import Grid from "material-ui/Grid";
-import BookListItem from "./BookListItem";
+import BookDisplayItem from "./BookDisplayItem";
 
 const styles = theme => ({
   container: {
@@ -25,16 +25,22 @@ const styles = theme => ({
   }
 });
 
-function BookList(props) {
+function BookDisplayGrid(props) {
   const { classes } = props;
   return (
     <div className={classes.root + " book-list-container"}>
       <Grid container spacing={24}>
         {props.books &&
-          props.books.map(book => {
+          props.books.map((book,index) => {
             return (
-              <Grid item xs={6} md={2} sm={4}>
-                <BookListItem book={book} />
+              <Grid item xs={6} sm={4} md={2} key={index} >
+                <BookDisplayItem
+                key={book.id}
+                  book={book}
+                  // To find the book's current shelf in the search feature
+                  bookShelf={props.bookShelf}
+                  handleShelfChange={props.handleShelfChange}
+                />
               </Grid>
             );
           })}
@@ -43,8 +49,8 @@ function BookList(props) {
   );
 }
 
-BookList.propTypes = {
+BookDisplayGrid.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(BookList);
+export default withStyles(styles)(BookDisplayGrid);
