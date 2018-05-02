@@ -10,6 +10,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.handleSearchChange = this.handleSearchChange.bind(this);
+    this.handleShelfChange = this.handleShelfChange.bind(this);
     this.state = {
       user: {},
       books: [],
@@ -57,13 +58,32 @@ class App extends Component {
     BooksAPI.getAll().then(books => this.setState({ books }));
   }
 
+  handleShelfChange(book, shelf) {
+    // console.log(book, shelf);
+    if (shelf === 1) {
+      BooksAPI.update(book, "currentlyReading").then(this.fetchBookList());
+    } else if (shelf === 2) {
+      BooksAPI.update(book, "wantToRead").then(this.fetchBookList());
+    } else if (shelf === 3) {
+      BooksAPI.update(book, "read").then(this.fetchBookList());
+    } else if (shelf === 4) {
+      BooksAPI.update(book, "none").then(this.fetchBookList());
+    }
+  }
+  
   render() {
     return (
       <div className="App">
         <Route
           exact
           path="/"
-          render={props => <Bookcase {...props} books={this.state.books} />}
+          render={props => (
+            <Bookcase
+              {...props}
+              books={this.state.books}
+              handleShelfChange={this.handleShelfChange}
+            />
+          )}
         />
         <Route
           path="/search"
@@ -73,6 +93,7 @@ class App extends Component {
               books={this.state.searchResults}
               searchQuery={this.state.searchQuery}
               handleSearchChange={this.handleSearchChange}
+              handleShelfChange={this.handleShelfChange}
             />
           )}
         />
