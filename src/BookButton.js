@@ -109,7 +109,7 @@ class BookButton extends React.Component {
               disabled={index === 0}
               selected={index === this.state.selectedIndex}
               onClick={() =>
-                this.props.handleShelfChange(this.props.book, index)
+                this.props.handleShelfChange(this.props.book, index, this.handleClose)
               }
             >
               {option}

@@ -59,7 +59,7 @@ class App extends Component {
     BooksAPI.getAll().then(books => this.setState({ books }));
   }
 
-  handleShelfChange(book, shelf) {
+  handleShelfChange(book, shelf, closeMenu) {
     // console.log(book, shelf);
     if (shelf === 1) {
       BooksAPI.update(book, "currentlyReading").then(this.fetchBookList());
@@ -70,6 +70,7 @@ class App extends Component {
     } else if (shelf === 4) {
       BooksAPI.update(book, "none").then(this.fetchBookList());
     }
+    closeMenu();
   }
   
   render() {
