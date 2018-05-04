@@ -24,7 +24,6 @@ const options = [
 class BookButton extends React.Component {
   state = {
     anchorEl: null,
-    selectedIndex: 1
   };
   componentDidUpdate(prevProps, prevState) {
     let currentShelf = this.props.book.shelf;
@@ -121,8 +120,13 @@ class BookButton extends React.Component {
   }
 }
 
+BookButton.defaultProps = {
+  selectedIndex: 1  
+}
+
 BookButton.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  selectedIndex: PropTypes.number,
 };
 
 export default withStyles(styles)(BookButton);
