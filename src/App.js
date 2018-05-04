@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 // My Components
 import Bookcase from "./Bookcase";
 import Search from "./Search";
+import Welcome from "./Welcome";
 import * as BooksAPI from "./BooksAPI";
 // Styles
 import "./App.css";
@@ -12,6 +13,7 @@ class App extends Component {
     this.handleSearchChange = this.handleSearchChange.bind(this);
     this.fetchBookList = this.fetchBookList.bind(this);
     this.handleShelfChange = this.handleShelfChange.bind(this);
+    this.handleNameChange = this.handleNameChange.bind(this);
     this.state = {
       userName: "",
       books: [],
@@ -55,6 +57,14 @@ class App extends Component {
     }
   }
 
+  handleNameChange(name) {
+    if (!name) {
+      this.setState({ userName: "" });
+    } else {
+      this.setState({ userName: name.target.value });
+    }
+  }
+
   fetchBookList() {
     BooksAPI.getAll().then(books => this.setState({ books }));
   }
@@ -76,6 +86,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Route
+          path="/welcome"
+          render={props => (
+            <Welcome
+              {...props}
+              userName={this.state.userName}
+              handleNameChange={this.handleNameChange}
+            />
+          )}
+        />
         <Route
           exact
           path="/"
