@@ -102,6 +102,7 @@ class App extends Component {
           render={props => (
             <Bookcase
               {...props}
+              userName={this.state.userName}
               books={this.state.books}
               handleShelfChange={this.handleShelfChange}
             />
@@ -112,6 +113,7 @@ class App extends Component {
           render={props => (
             <Search
               {...props}
+              userName={this.state.userName}
               books={this.state.searchResults}
               searchQuery={this.state.searchQuery}
               // Pass the user's book shelf to compare against the search results:

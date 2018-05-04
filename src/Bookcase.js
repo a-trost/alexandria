@@ -11,7 +11,7 @@ import Divider from 'material-ui/Divider';
 function Bookcase(props) {
   return (
   <div>
-   <ButtonAppBar/>
+   <ButtonAppBar userName={props.userName} />
    <h2>Currently Reading</h2>
     <BookDisplayGrid 
     books={props.books.filter(book=>book.shelf === "currentlyReading")}

@@ -6,7 +6,7 @@ import BookDisplayGrid from "./BookDisplayGrid";
 function Search(props) {
   return (
     <div>
-      <ButtonAppBar />
+      <ButtonAppBar userName={props.userName} />
       <input
         type="text"
         name="search"
