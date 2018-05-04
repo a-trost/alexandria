@@ -42,3 +42,24 @@ a {
   margin:100px auto;
   display:flex;
 }
+
+.welcome-section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.welcome-image {
+  max-width: 400px;
+  padding:20px;
+  margin: 30px auto;
+  display:flex;
+}
+
+.welcome-btn {
+  margin:20px;
+}
+
+.name-input {
+  max-width:300px;
+}
