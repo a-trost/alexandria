@@ -34,7 +34,9 @@ function ButtonAppBar(props) {
           <Typography variant="title" color="inherit" className={classes.flex}>
           <Link to="/"><span className="app-title">Alexandria</span></Link>
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Link to="/welcome">
+          <Button color="inherit">{props.userName?props.userName:"Login"}</Button>
+          </Link>
         </Toolbar>
       </AppBar>
     </div>
