@@ -13,7 +13,7 @@ class App extends Component {
     this.fetchBookList = this.fetchBookList.bind(this);
     this.handleShelfChange = this.handleShelfChange.bind(this);
     this.state = {
-      user: {},
+      userName: "",
       books: [],
       searchResults: [],
       searchQuery: ""
@@ -21,10 +21,10 @@ class App extends Component {
   }
   componentDidMount() {
     try {
-      const userJson = localStorage.getItem("user");
-      const user = JSON.parse(userJson);
-      if (user) {
-        this.setState(() => ({ user }));
+      const userNameJson = localStorage.getItem("userName");
+      const userName = JSON.parse(userNameJson);
+      if (userName) {
+        this.setState(() => ({ userName }));
       }
     } catch (e) {
       // Do nothing. If the data is corrupt we'll start from scratch.
@@ -32,9 +32,9 @@ class App extends Component {
     this.fetchBookList();
   }
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.user !== this.state.user) {
-      const json = JSON.stringify(this.state.user);
-      localStorage.setItem("user", json);
+    if (prevState.userName !== this.state.userName) {
+      const json = JSON.stringify(this.state.userName);
+      localStorage.setItem("userName", json);
     }
   }
 
