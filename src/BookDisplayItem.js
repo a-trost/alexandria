@@ -19,6 +19,10 @@ function BookDisplayItem(props) {
         bookShelf={props.bookShelf}
         handleShelfChange={props.handleShelfChange}
       />
+      <div className="book-text">
+      {props.book.title && <p className="book-title">{props.book.title}</p>}
+        {props.book.authors && <p className="book-author">{props.book.authors.join(", ")}</p>}
+      </div>
     </div>
   );
 }
