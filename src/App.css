@@ -27,6 +27,12 @@ a {
   -ms-transform: translate(-50%, -50%);
 }
 
+.book-chip {
+  transform: translate(0, -16px);
+  -ms-transform: translate(0, -16px);
+  margin:0px;
+}
+
 .book-text {
   margin: 30px 0;
 }
