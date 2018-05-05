@@ -4,6 +4,7 @@
 */
 import React from "react";
 import BookButton from "./BookButton";
+import missingcover from "./img/missingcover.svg";
 
 const options = [
   "Move to Shelf",
@@ -109,12 +110,17 @@ class BookDisplayItem extends React.Component {
 
     render() {
   return (
-    <div>
+        <div className="book-list-item"> 
+          {this.props.book.imageLinks ?
       <img
-        src={props.book.imageLinks.thumbnail}
-        alt={props.book.title}
-        className="book-list-item"
-      />
+              src = {this.props.book.imageLinks.thumbnail}
+              alt = {this.props.book.title}
+              className = "book-list-item-image" /> : 
+              <img 
+              src = {missingcover}
+              alt = {this.props.book.title}
+              className = "book-list-item-image" />
+            } 
       <BookButton
             book = {this.props.book}
         // To find the book's current shelf in the search feature
