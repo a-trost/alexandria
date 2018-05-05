@@ -5,7 +5,7 @@
 import React, { Component } from "react";
 import ButtonAppBar from "./ButtonAppBar";
 import WelcomeButton from "./WelcomeButton";
-import bookstack from "./BookStack.svg";
+import bookstack from "./img/BookStack.svg";
 import { Link } from "react-router-dom";
 import Input, { InputLabel } from "material-ui/Input";
 import { FormControl, FormHelperText } from "material-ui/Form";
@@ -19,7 +19,7 @@ class Welcome extends Component {
         <p>
           Track books you've read, want to read, and what you're reading now.
         </p>
-        <img className="welcome-image" src={bookstack} />
+        <img alt="Stack of Books" className="welcome-image" src={bookstack} />
 
         <FormControl
           fullWidth
