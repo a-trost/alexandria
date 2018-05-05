@@ -72,20 +72,20 @@ a {
 }
 
 .add-book-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
 }
 
 .empty-shelf {
-  margin:100px auto;
-  display:flex;
+  margin: 100px auto;
+  display: flex;
 }
 
 .welcome-section {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .welcome-image {
