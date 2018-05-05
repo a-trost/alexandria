@@ -4,9 +4,9 @@
 */
 import React from "react";
 import PropTypes from "prop-types";
-import BookButton from "./components/BookButton";
+import BookButton from "./BookButton";
 import Chip from 'material-ui/Chip';
-import missingcover from "./img/missingcover.svg";
+import missingcover from "../img/missingcover.svg";
 
 const options = [
   "Move to Shelf",

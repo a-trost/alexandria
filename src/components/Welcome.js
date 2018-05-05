@@ -3,9 +3,9 @@
   and pick some books to start with.
 */
 import React, { Component } from "react";
-import ButtonAppBar from "./components/ButtonAppBar";
-import WelcomeButton from "./components/WelcomeButton";
-import bookstack from "./img/BookStack.svg";
+import ButtonAppBar from "./ButtonAppBar";
+import WelcomeButton from "./WelcomeButton";
+import bookstack from "../img/BookStack.svg";
 import { Link } from "react-router-dom";
 import Input, { InputLabel } from "material-ui/Input";
 import { FormControl, FormHelperText } from "material-ui/Form";
