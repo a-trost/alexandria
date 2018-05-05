@@ -2,17 +2,24 @@ import React from "react";
 // My Components
 import ButtonAppBar from "./ButtonAppBar";
 import BookDisplayGrid from "./BookDisplayGrid";
+import TextField from 'material-ui/TextField';
+
 
 function Search(props) {
+  const { classes } = props;
   return (
     <div>
       <ButtonAppBar userName={props.userName} />
-      <input
-        type="text"
-        name="search"
-        placeholder="Find your next book"
-        onChange={e => props.handleSearchChange(e.target.value.trim())}
-      />
+
+      <TextField
+          id="search"
+          label="Search books"
+          type="search"
+          className='search-box'
+          margin="normal"
+          onChange={e => props.handleSearchChange(e.target.value.trim())}
+        />
+
       {props.searchQuery && (
         <BookDisplayGrid
           // bookShelf is the user's collection
