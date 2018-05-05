@@ -6,11 +6,9 @@ import TextField from 'material-ui/TextField';
 
 
 function Search(props) {
-  const { classes } = props;
   return (
     <div>
       <ButtonAppBar userName={props.userName} />
-
       <TextField
           id="search"
           label="Search books"
@@ -19,7 +17,6 @@ function Search(props) {
           margin="normal"
           onChange={e => props.handleSearchChange(e.target.value.trim())}
         />
-
       {props.searchQuery && (
         <BookDisplayGrid
           // bookShelf is the user's collection
