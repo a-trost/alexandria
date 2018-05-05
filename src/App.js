@@ -120,6 +120,7 @@ class App extends Component {
               bookShelf={this.state.books}
               handleSearchChange={this.handleSearchChange}
               handleShelfChange={this.handleShelfChange}
+              search={true}
             />
           )}
         />

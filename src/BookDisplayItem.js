@@ -19,6 +19,10 @@ function BookDisplayItem(props) {
         bookShelf={props.bookShelf}
         handleShelfChange={props.handleShelfChange}
       />
+            {(this.state.shelf && this.props.search) && 
+            <Chip 
+            label = {this.state.shelf}
+              className = "book-chip" />
       <div className="book-text">
       {props.book.title && <p className="book-title">{props.book.title}</p>}
         {props.book.authors && <p className="book-author">{props.book.authors.join(", ")}</p>}

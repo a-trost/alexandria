@@ -20,6 +20,7 @@ function Search(props) {
           // books is the search results
           books={props.books}
           handleShelfChange={props.handleShelfChange}
+          search={true}
         />
       )}
     </div>

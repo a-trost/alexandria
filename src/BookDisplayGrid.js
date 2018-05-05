@@ -41,6 +41,7 @@ function BookDisplayGrid(props) {
                   // To find the book's current shelf in the search feature
                   bookShelf={props.bookShelf}
                   handleShelfChange={props.handleShelfChange}
+                  search={props.search}
                 />
               </Grid>
             );
