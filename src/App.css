@@ -7,15 +7,29 @@ a {
   text-decoration: none;
 }
 
+/* Book Display Item Styles */
+
 .book-list-item {
+  max-width: 250px;
+}
+
+.book-list-item-image {
   box-shadow: 2px 2px 5px #616161b1;
   width: 100%;
   height: auto;
   position: relative;
 }
+
 .book-list-container {
+  margin: 25px;
+}
+
+.book-button-root {
+  height: 0px;
+}
+
 .book-button-root button {
-  width:45px;
+  width: 45px;
   height: 45px;
 }
 

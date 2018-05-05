@@ -111,10 +111,10 @@ class BookDisplayItem extends React.Component {
     };
 
     render() {
-  return (
+        return ( 
         <div className="book-list-item"> 
           {this.props.book.imageLinks ?
-      <img
+              <img
               src = {this.props.book.imageLinks.thumbnail}
               alt = {this.props.book.title}
               className = "book-list-item-image" /> : 
@@ -123,9 +123,9 @@ class BookDisplayItem extends React.Component {
               alt = {this.props.book.title}
               className = "book-list-item-image" />
             } 
-      <BookButton
+            <BookButton 
             book = {this.props.book}
-        // To find the book's current shelf in the search feature
+            // To find the book's current shelf in the search feature
             bookShelf = {this.props.bookShelf}
             handleButtonOpenClick = {this.handleButtonOpenClick}
             handleMenuItemClick = {this.handleMenuItemClick}
@@ -134,18 +134,24 @@ class BookDisplayItem extends React.Component {
             options = {options}
             anchorEl = {this.state.anchorEl}
             selectedIndex={this.state.selectedIndex}
-      />
+            /> 
             {(this.state.shelf && this.props.search) && 
             <Chip 
             label = {this.state.shelf}
               className = "book-chip" />
-      <div className="book-text">
-      {props.book.title && <p className="book-title">{props.book.title}</p>}
-        {props.book.authors && <p className="book-author">{props.book.authors.join(", ")}</p>}
-      </div>
-    </div>
-  );
-}
+            } 
+            <div className = "book-text"> 
+              {this.props.book.title && 
+              <p className ="book-title"> {this.props.book.title} </p>
+              } 
+              {this.props.book.authors && 
+              <p className = "book-author"> 
+              {this.props.book.authors.join(", ")} 
+              </p>} 
+            </div> 
+        </div>
+            );
+          }
         }
         BookDisplayItem.defaultProps = {
           selectedIndex: 0
@@ -155,4 +161,5 @@ class BookDisplayItem extends React.Component {
           selectedIndex: PropTypes.number,
         };
 
-export default BookDisplayItem;
+        export default BookDisplayItem;
+        
