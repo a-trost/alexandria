@@ -90,15 +90,19 @@ a {
 
 .welcome-image {
   max-width: 400px;
-  padding:20px;
+  padding: 20px;
   margin: 30px auto;
-  display:flex;
+  display: flex;
 }
 
 .welcome-btn {
-  margin:20px;
+  margin: 20px;
 }
 
 .name-input {
-  max-width:300px;
+  max-width: 300px;  
+}
+
+#name-helper {
+  font-size: 2em;  
 }
