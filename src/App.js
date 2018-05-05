@@ -5,6 +5,7 @@ import Bookcase from "./Bookcase";
 import Search from "./Search";
 import Welcome from "./Welcome";
 import * as BooksAPI from "./BooksAPI";
+import CornerSnackbar from "./CornerSnackbar"
 // Styles
 import "./App.css";
 class App extends Component {
@@ -14,11 +15,14 @@ class App extends Component {
     this.fetchBookList = this.fetchBookList.bind(this);
     this.handleShelfChange = this.handleShelfChange.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
+    this.closeSnackbar = this.closeSnackbar.bind(this);
     this.state = {
       userName: "",
       books: [],
       searchResults: [],
-      searchQuery: ""
+      searchQuery: "",
+      snackbarOpen:false,
+      snackbarMessage:""
     };
   }
   componentDidMount() {
@@ -72,20 +76,33 @@ class App extends Component {
   handleShelfChange(book, shelf, closeMenu) {
     // console.log(book, shelf);
     if (shelf === 1) {
-      BooksAPI.update(book, "currentlyReading").then(this.fetchBookList());
+      BooksAPI.update(book, "currentlyReading").then(this.fetchBookList()).then(this.openSnackbar(book, " moved to Currently Reading"));
     } else if (shelf === 2) {
-      BooksAPI.update(book, "wantToRead").then(this.fetchBookList());
+      BooksAPI.update(book, "wantToRead").then(this.fetchBookList()).then(this.openSnackbar(book, " moved to Want to Read"));
     } else if (shelf === 3) {
-      BooksAPI.update(book, "read").then(this.fetchBookList());
+      BooksAPI.update(book, "read").then(this.fetchBookList()).then(this.openSnackbar(book, " moved to Read"));
     } else if (shelf === 4) {
-      BooksAPI.update(book, "none").then(this.fetchBookList());
+    BooksAPI.update(book, "none").then(this.fetchBookList()).then(this.openSnackbar(book, " removed from shelves"));
     }
     closeMenu();
   }
   
+  openSnackbar(book, message) {
+    this.setState({snackbarMessage:(book.title + message)});
+    this.setState({snackbarOpen:true});
+  }
+  closeSnackbar() {
+    this.setState({snackbarOpen:false})
+  }
+
   render() {
     return (
       <div className="App">
+      <CornerSnackbar
+          open={this.state.snackbarOpen}
+          message={this.state.snackbarMessage}
+          onClose={this.closeSnackbar}
+        />
         <Route
           path="/welcome"
           render={props => (
