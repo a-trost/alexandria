@@ -32,6 +32,11 @@ class App extends Component {
       if (userName) {
         this.setState(() => ({ userName }));
       }
+      const booksJson = localStorage.getItem("books");
+      const books = JSON.parse(booksJson);
+      if (books) {
+        this.setState(() => ({ books }));
+      }
     } catch (e) {
       // Do nothing. If the data is corrupt we'll start from scratch.
     }
@@ -41,6 +46,10 @@ class App extends Component {
     if (prevState.userName !== this.state.userName) {
       const json = JSON.stringify(this.state.userName);
       localStorage.setItem("userName", json);
+    }
+    if (prevState.books !== this.state.books) {
+      const json = JSON.stringify(this.state.books);
+      localStorage.setItem("books", json);
     }
   }
 
@@ -86,7 +95,7 @@ class App extends Component {
     }
     closeMenu();
   }
-  
+
   openSnackbar(book, message) {
     this.setState({snackbarMessage:(book.title + message)});
     this.setState({snackbarOpen:true});
