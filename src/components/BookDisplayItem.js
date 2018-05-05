@@ -4,7 +4,7 @@
 */
 import React from "react";
 import PropTypes from "prop-types";
-import BookButton from "./BookButton";
+import BookButton from "./components/BookButton";
 import Chip from 'material-ui/Chip';
 import missingcover from "./img/missingcover.svg";
 

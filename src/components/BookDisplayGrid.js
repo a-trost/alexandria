@@ -6,7 +6,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "material-ui/styles";
 import Grid from "material-ui/Grid";
-import BookDisplayItem from "./BookDisplayItem";
+import BookDisplayItem from "./components/BookDisplayItem";
 
 const styles = theme => ({
   container: {

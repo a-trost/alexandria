@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
 // My Components
-import Bookcase from "./Bookcase";
-import Search from "./Search";
-import Welcome from "./Welcome";
+import Bookcase from "./components/Bookcase";
+import Search from "./components/Search";
+import Welcome from "./components/Welcome";
 import * as BooksAPI from "./BooksAPI";
-import CornerSnackbar from "./CornerSnackbar"
+import CornerSnackbar from "./components/CornerSnackbar"
 // Styles
 import "./App.css";
 class App extends Component {

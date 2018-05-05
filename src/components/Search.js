@@ -1,7 +1,7 @@
 import React from "react";
 // My Components
-import ButtonAppBar from "./ButtonAppBar";
-import BookDisplayGrid from "./BookDisplayGrid";
+import ButtonAppBar from "./components/ButtonAppBar";
+import BookDisplayGrid from "./components/BookDisplayGrid";
 import TextField from 'material-ui/TextField';
 
 
