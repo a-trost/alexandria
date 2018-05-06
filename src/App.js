@@ -32,11 +32,6 @@ class App extends Component {
       if (userName) {
         this.setState(() => ({ userName }));
       }
-      const booksJson = localStorage.getItem("books");
-      const books = JSON.parse(booksJson);
-      if (books) {
-        this.setState(() => ({ books }));
-      }
     } catch (e) {
       // Do nothing. If the data is corrupt we'll start from scratch.
     }
@@ -47,16 +42,12 @@ class App extends Component {
       const json = JSON.stringify(this.state.userName);
       localStorage.setItem("userName", json);
     }
-    if (prevState.books !== this.state.books) {
-      const json = JSON.stringify(this.state.books);
-      localStorage.setItem("books", json);
-    }
   }
   
   debounceTimeout = null;
 
   handleSearchChange(query) {
-    if (!query) {
+    if (!query || query.length < 2) {
       this.setState({ searchQuery: "", searchResults: [] });
     } else {
       this.setState({ searchQuery: query });
@@ -86,19 +77,35 @@ class App extends Component {
   }
 
   fetchBookList() {
-    BooksAPI.getAll().then(books => this.setState({ books }));
+    BooksAPI.getAll().then(books => {this.setState({ books })});
+  }
+
+  updateStateBooks(book,shelf) {
+    // Update the books in state first to give the user an immediate response, then update the backend.
+    let previousStateBooks = this.state.books;
+    const existingBookIndex = previousStateBooks.findIndex(comparisonBook=>comparisonBook.id===book.id);
+    if (existingBookIndex>-1) {
+      book.shelf = shelf;
+      previousStateBooks[existingBookIndex] = book
+    } else {
+      previousStateBooks.push(book);
+    }
+    this.setState({books:previousStateBooks})
   }
 
   handleShelfChange(book, shelf, closeMenu) {
-    // console.log(book, shelf);
     if (shelf === 1) {
-      BooksAPI.update(book, "currentlyReading").then(this.fetchBookList()).then(this.openSnackbar(book, " moved to Currently Reading"));
+      this.updateStateBooks(book,"currentlyReading")
+      BooksAPI.update(book, "currentlyReading").then(this.fetchBookList()).then(this.openSnackbar(book, " moved to Currently Reading")).catch(e=>this.openSnackbar(book, "had an error being moved."));
     } else if (shelf === 2) {
-      BooksAPI.update(book, "wantToRead").then(this.fetchBookList()).then(this.openSnackbar(book, " moved to Want to Read"));
+      this.updateStateBooks(book,"wantToRead")
+      BooksAPI.update(book, "wantToRead").then(this.fetchBookList()).then(this.openSnackbar(book, " moved to Want to Read")).catch(e=>this.openSnackbar(book, "had an error being moved."));
     } else if (shelf === 3) {
-      BooksAPI.update(book, "read").then(this.fetchBookList()).then(this.openSnackbar(book, " moved to Read"));
+      this.updateStateBooks(book,"read")
+      BooksAPI.update(book, "read").then(this.fetchBookList()).then(this.openSnackbar(book, " moved to Read")).catch(e=>this.openSnackbar(book, "had an error being moved."));
     } else if (shelf === 4) {
-    BooksAPI.update(book, "none").then(this.fetchBookList()).then(this.openSnackbar(book, " removed from shelves"));
+      this.updateStateBooks(book,"none")
+      BooksAPI.update(book, "none").then(this.fetchBookList()).then(this.openSnackbar(book, " removed from shelves")).catch(e=>this.openSnackbar(book, "had an error being moved."));
     }
     closeMenu();
   }
