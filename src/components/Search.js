@@ -1,34 +1,40 @@
-import React from "react";
+import React, { Component } from "react";
 // My Components
 import ButtonAppBar from "./ButtonAppBar";
 import BookDisplayGrid from "./BookDisplayGrid";
 import TextField from 'material-ui/TextField';
 
 
-function Search(props) {
+class Search extends Component {
+  componentDidMount() {
+    // This resets the search results
+    this.props.handleSearchChange("");
+  }
+
+  render() {
   return (
     <div>
-      <ButtonAppBar userName={props.userName} />
+      <ButtonAppBar userName={this.props.userName} />
       <TextField
           id="search"
           label="Search books"
           type="search"
           className='search-box'
           margin="normal"
-          onChange={e => props.handleSearchChange(e.target.value.trim())}
+          onChange={e => this.props.handleSearchChange(e.target.value.trim())}
         />
-      {props.searchQuery && (
+      {this.props.searchQuery && (
         <BookDisplayGrid
           // bookShelf is the user's collection
-          bookShelf={props.bookShelf}
+          bookShelf={this.props.bookShelf}
           // books is the search results
-          books={props.books}
-          handleShelfChange={props.handleShelfChange}
+          books={this.props.books}
+          handleShelfChange={this.props.handleShelfChange}
           search={true}
         />
       )}
     </div>
-  );
+  )}
 }
 
 export default Search;
