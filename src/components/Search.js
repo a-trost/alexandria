@@ -14,7 +14,7 @@ class Search extends Component {
   render() {
   return (
     <div>
-      <ButtonAppBar userName={this.props.userName} />
+      <ButtonAppBar userName={this.props.userName} search />
       <TextField
           id="search"
           label="Search books"

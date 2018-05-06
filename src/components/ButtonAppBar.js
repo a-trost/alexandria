@@ -6,7 +6,7 @@ import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
 import IconButton from 'material-ui/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import ArrowBack from '@material-ui/icons/ArrowBack';
 import { Link } from 'react-router-dom';
 
 const styles = {
@@ -28,9 +28,12 @@ function ButtonAppBar(props) {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-            <MenuIcon />
-          </IconButton>
+          {props.search &&
+          (<Link to="/">
+            <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
+              <ArrowBack />
+            </IconButton>
+          </Link>)}
           <Typography variant="title" color="inherit" className={classes.flex}>
           <Link to="/"><span className="app-title">Alexandria</span></Link>
           </Typography>
