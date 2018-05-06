@@ -1,3 +1,6 @@
+/*  
+    The Start Reading button for the welcome page.
+*/
 import React from "react";
 import { withStyles } from "material-ui/styles";
 import Button from "material-ui/Button";

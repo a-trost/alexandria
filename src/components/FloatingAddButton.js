@@ -1,3 +1,6 @@
+/*  
+    The corner + button at the bottom right of the main screen.
+*/
 import React from "react";
 import Button from "material-ui/Button";
 import AddIcon from "@material-ui/icons/Add";
@@ -10,7 +13,6 @@ function FloatingAddButton(props) {
         <Button
           variant="fab"
           color="secondary"
-          // onClick={this.handleButtonOpenClick}
         >
           <AddIcon style={{ fontSize: 40 }} />
         </Button>

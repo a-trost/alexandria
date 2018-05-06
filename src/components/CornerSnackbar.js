@@ -1,3 +1,7 @@
+/*  
+    'Snackbar' is the term given to the small status popup used in Material design.
+    This takes a message and gives the user feedback on their action.
+*/
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';

@@ -1,3 +1,7 @@
+/*  
+    The search component uses a text field and a BookDisplayGrid component.
+    Based on the user's entry, the API returns books to the DisplayGrid.
+*/
 import React, { Component } from "react";
 // My Components
 import ButtonAppBar from "./ButtonAppBar";

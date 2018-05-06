@@ -1,5 +1,5 @@
 /* 
-  This is the small book icon that will appear on shelves 
+  This is the small book image that will appear on shelves 
   and search results
 */
 import React from "react";

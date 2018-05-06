@@ -1,3 +1,6 @@
+/*  
+    A button on each book that allows the user to change the book's shelf
+*/
 import React from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "material-ui/styles";

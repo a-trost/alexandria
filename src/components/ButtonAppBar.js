@@ -1,3 +1,7 @@
+/*  
+    The header bar for the app. 
+    Changes slightly based on different conditions.
+*/
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
