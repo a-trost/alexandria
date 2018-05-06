@@ -21,6 +21,7 @@ class Search extends Component {
           type="search"
           className='search-box'
           margin="normal"
+          autoFocus
           onChange={e => this.props.handleSearchChange(e.target.value.trim())}
         />
       {this.props.searchQuery && (
