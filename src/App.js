@@ -52,13 +52,21 @@ class App extends Component {
       localStorage.setItem("books", json);
     }
   }
+  
+  debounceTimeout = null;
 
   handleSearchChange(query) {
     if (!query) {
       this.setState({ searchQuery: "", searchResults: [] });
     } else {
       this.setState({ searchQuery: query });
-      BooksAPI.search(query)
+      clearTimeout(this.debounceTimeout);
+      this.debounceTimeout = setTimeout(()=>this.search(query),400);
+    }
+  }
+
+  search(query) {
+    BooksAPI.search(query)
         .then(results => {
           if (results.error) {
             return (results = []);
@@ -67,7 +75,6 @@ class App extends Component {
           }
         })
         .then(results => this.setState({ searchResults: results }));
-    }
   }
 
   handleNameChange(name) {
