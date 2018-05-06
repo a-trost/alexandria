@@ -30,6 +30,7 @@ class Search extends Component {
           bookShelf={this.props.bookShelf}
           // books is the search results
           books={this.props.books}
+          search
           handleShelfChange={this.props.handleShelfChange}
           search={true}
         />
