@@ -82,13 +82,14 @@ class App extends Component {
 
   updateStateBooks(book,shelf) {
     // Update the books in state first to give the user an immediate response, then update the backend.
+    let newBook = book;
     let previousStateBooks = this.state.books;
-    const existingBookIndex = previousStateBooks.findIndex(comparisonBook=>comparisonBook.id===book.id);
+    const existingBookIndex = previousStateBooks.findIndex(comparisonBook=>comparisonBook.id===newBook.id);
+    newBook.shelf = shelf;
     if (existingBookIndex>-1) {
-      book.shelf = shelf;
-      previousStateBooks[existingBookIndex] = book
+      previousStateBooks[existingBookIndex] = newBook
     } else {
-      previousStateBooks.push(book);
+      previousStateBooks.push(newBook);
     }
     this.setState({books:previousStateBooks})
   }
