@@ -36,7 +36,6 @@ class Search extends Component {
           books={this.props.books}
           search
           handleShelfChange={this.props.handleShelfChange}
-          search={true}
         />
       )}
     </div>
