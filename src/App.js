@@ -81,9 +81,6 @@ class App extends Component {
   fetchBookList() {
     BooksAPI.getAll().then(books => {this.setState({ books })});
   }
-  delayFetchBookList() {
-    setTimeout(() => BooksAPI.getAll().then(books => {this.setState({ books })}), 1000)
-  }
 
   updateStateBooks(book,shelf) {
     // Update the books in state first to give the user an immediate response, then update the backend.
@@ -102,16 +99,16 @@ class App extends Component {
   handleShelfChange(book, shelf, closeMenu) {
     if (shelf === 1) {
       this.updateStateBooks(book,"currentlyReading")
-      BooksAPI.update(book, "currentlyReading").then(this.delayFetchBookList()).then(this.openSnackbar(book, " moved to Currently Reading")).catch(e=>this.openSnackbar(book, "had an error being moved."));
+      BooksAPI.update(book, "currentlyReading").then(this.fetchBookList).then(()=>this.openSnackbar(book, " moved to Currently Reading")).catch(e=>this.openSnackbar(book, "had an error being moved."));
     } else if (shelf === 2) {
       this.updateStateBooks(book,"wantToRead")
-      BooksAPI.update(book, "wantToRead").then(this.delayFetchBookList()).then(this.openSnackbar(book, " moved to Want to Read")).catch(e=>this.openSnackbar(book, "had an error being moved."));
+      BooksAPI.update(book, "wantToRead").then(this.fetchBookList).then(()=>this.openSnackbar(book, " moved to Want to Read")).catch(e=>this.openSnackbar(book, "had an error being moved."));
     } else if (shelf === 3) {
       this.updateStateBooks(book,"read")
-      BooksAPI.update(book, "read").then(this.delayFetchBookList()).then(this.openSnackbar(book, " moved to Read")).catch(e=>this.openSnackbar(book, "had an error being moved."));
+      BooksAPI.update(book, "read").then(this.fetchBookList).then(()=>this.openSnackbar(book, " moved to Read")).catch(e=>this.openSnackbar(book, "had an error being moved."));
     } else if (shelf === 4) {
       this.updateStateBooks(book,"none")
-      BooksAPI.update(book, "none").then(this.delayFetchBookList()).then(this.openSnackbar(book, " removed from shelves")).catch(e=>this.openSnackbar(book, "had an error being moved."));
+      BooksAPI.update(book, "none").then(this.fetchBookList).then(()=>this.openSnackbar(book, " removed from shelves")).catch(e=>this.openSnackbar(book, "had an error being moved."));
     }
     closeMenu();
   }
