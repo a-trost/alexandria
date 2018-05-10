@@ -7,6 +7,13 @@ a {
   text-decoration: none;
 }
 
+/* Bookcase Styles */
+.book-shelf-count {
+  color:#999;
+  font-weight: 300;
+  font-size: .9em;
+}
+
 /* Book Display Item Styles */
 
 .book-list-item {
