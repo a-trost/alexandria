@@ -2,7 +2,6 @@
     Holds the user's shelves in BookList components
 */
 import React from 'react';
-// My Components
 import ButtonAppBar from './ButtonAppBar';
 import BookDisplayGrid from './BookDisplayGrid';
 import FloatingAddButton from './FloatingAddButton'
