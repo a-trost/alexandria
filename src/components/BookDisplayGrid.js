@@ -25,7 +25,7 @@ const styles = theme => ({
   }
 });
 
-function BookDisplayGrid(props) {
+const BookDisplayGrid = (props) => {
   const { classes } = props;
   return (
     <div className={classes.root + " book-list-container"}>
