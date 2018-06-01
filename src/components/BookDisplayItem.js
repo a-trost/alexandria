@@ -124,13 +124,10 @@ class BookDisplayItem extends React.Component {
               className = "book-list-item-image" />
             } 
             <BookButton 
-            book = {this.props.book}
-            // To find the book's current shelf in the search feature
-            bookShelf = {this.props.bookShelf}
+            {...this.props}
             handleButtonOpenClick = {this.handleButtonOpenClick}
             handleMenuItemClick = {this.handleMenuItemClick}
             handleClose = {this.handleClose}
-            handleShelfChange = {this.props.handleShelfChange}
             options = {options}
             anchorEl = {this.state.anchorEl}
             selectedIndex={this.state.selectedIndex}
@@ -147,7 +144,7 @@ class BookDisplayItem extends React.Component {
               {this.props.book.authors && 
               <p className = "book-author"> 
               {this.props.book.authors.join(", ")} 
-              </p>} 
+              </p>} {this.props.book.averageRating && <p className="book-rating">{this.props.book.averageRating}({this.props.book.ratingsCount})</p>}
             </div> 
         </div>
             );
