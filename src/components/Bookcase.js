@@ -8,7 +8,7 @@ import BookDisplayGrid from './BookDisplayGrid';
 import FloatingAddButton from './FloatingAddButton'
 import Divider from 'material-ui/Divider';
 
-function Bookcase(props) {
+export default (props) => {
     const currentlyReadingBookList = props.books.filter(book=>book.shelf === "currentlyReading");
     const wantToReadBookList = props.books.filter(book=>book.shelf === "wantToRead")
     const readBookList = props.books.filter(book=>book.shelf === "read")
@@ -36,4 +36,3 @@ function Bookcase(props) {
         </div>
     )
   }
-export default Bookcase;
