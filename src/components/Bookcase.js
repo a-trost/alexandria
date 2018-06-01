@@ -8,11 +8,11 @@ import FloatingAddButton from './FloatingAddButton'
 import Divider from 'material-ui/Divider';
 
 export default (props) => {
-    const currentlyReadingBookList = props.books.filter(book=>book.shelf === "currentlyReading");
-    const wantToReadBookList = props.books.filter(book=>book.shelf === "wantToRead")
-    const readBookList = props.books.filter(book=>book.shelf === "read")
+  const currentlyReadingBookList = props.books.filter(book=>book.shelf === "currentlyReading");
+  const wantToReadBookList = props.books.filter(book=>book.shelf === "wantToRead")
+  const readBookList = props.books.filter(book=>book.shelf === "read")
   return (
-  <div>
+  <React.Fragment>
    <ButtonAppBar userName={props.userName} />
    <h2>Currently Reading <span className="book-shelf-count">({currentlyReadingBookList.length})</span></h2>
     <BookDisplayGrid 
@@ -32,6 +32,6 @@ export default (props) => {
     handleShelfChange={props.handleShelfChange}
     />
     <FloatingAddButton />
-        </div>
+        </React.Fragment>
     )
   }
