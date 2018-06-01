@@ -37,11 +37,8 @@ function BookDisplayGrid(props) {
               <Grid item xs={6} sm={4} md={2} key={index} >
                 <BookDisplayItem
                 key={book.id}
-                  book={book}
-                  // To find the book's current shelf in the search feature
-                  bookShelf={props.bookShelf}
-                  handleShelfChange={props.handleShelfChange}
-                  search={props.search}
+                book={book}
+                {...props}
                 />
               </Grid>
             );
