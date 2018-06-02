@@ -93,23 +93,33 @@ class App extends Component {
     } else {
       previousStateBooks.push(newBook);
     }
-    this.setState({books:previousStateBooks})
+
+  shelfChangeStrings = {
+    1: {
+      shelfName: "currentlyReading",
+      movedToMessage: " moved to Currently Reading"
+    },
+    2: {
+      shelfName: "wantToRead",
+      movedToMessage: " moved to Want to Read"
+    },
+    3: {
+      shelfName: "read",
+      movedToMessage: " moved to Read"
+    },
+    4: {
+      shelfName: "none",
+      movedToMessage: " removed from shelves"
   }
+  };
 
   handleShelfChange(book, shelf, closeMenu) {
-    if (shelf === 1) {
-      this.updateStateBooks(book,"currentlyReading")
-      BooksAPI.update(book, "currentlyReading").then(this.fetchBookList).then(()=>this.openSnackbar(book, " moved to Currently Reading")).catch(e=>this.openSnackbar(book, "had an error being moved."));
-    } else if (shelf === 2) {
-      this.updateStateBooks(book,"wantToRead")
-      BooksAPI.update(book, "wantToRead").then(this.fetchBookList).then(()=>this.openSnackbar(book, " moved to Want to Read")).catch(e=>this.openSnackbar(book, "had an error being moved."));
-    } else if (shelf === 3) {
-      this.updateStateBooks(book,"read")
-      BooksAPI.update(book, "read").then(this.fetchBookList).then(()=>this.openSnackbar(book, " moved to Read")).catch(e=>this.openSnackbar(book, "had an error being moved."));
-    } else if (shelf === 4) {
-      this.updateStateBooks(book,"none")
-      BooksAPI.update(book, "none").then(this.fetchBookList).then(()=>this.openSnackbar(book, " removed from shelves")).catch(e=>this.openSnackbar(book, "had an error being moved."));
-    }
+    const { shelfName, movedToMessage } = this.shelfChangeStrings[shelf];
+    this.updateStateBooks(book, shelfName);
+    BooksAPI.update(book, shelfName)
+      .then(this.fetchBookList)
+      .then(() => this.openSnackbar(book, movedToMessage))
+      .catch(e => this.openSnackbar(book, "had an error being moved."));
     closeMenu();
   }
 
