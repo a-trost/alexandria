@@ -52,9 +52,7 @@ class BookDisplayItem extends React.Component {
         this.state.selectedIndex !== 1
       ) {
         this.setState({
-          selectedIndex: 1
-        });
-        this.setState({
+          selectedIndex: 1,
           shelf: "Currently Reading"
         });
       } else if (
@@ -62,9 +60,7 @@ class BookDisplayItem extends React.Component {
         this.state.selectedIndex !== 2
       ) {
         this.setState({
-          selectedIndex: 2
-        });
-        this.setState({
+          selectedIndex: 2,
           shelf: "Want to Read"
         });
       } else if (
@@ -72,9 +68,7 @@ class BookDisplayItem extends React.Component {
         this.state.selectedIndex !== 3
       ) {
         this.setState({
-          selectedIndex: 3
-        });
-        this.setState({
+          selectedIndex: 3,
           shelf: "Read"
         });
       } else if (
@@ -82,9 +76,7 @@ class BookDisplayItem extends React.Component {
         this.state.selectedIndex !== 4
       ) {
         this.setState({
-          selectedIndex: 4
-        });
-        this.setState({
+          selectedIndex: 4,
           shelf: false
         });
       }
