@@ -1,0 +1,4 @@
+https://alexandria.netlify.com/* https://alexandria.atrost.com/:splat 301!
+http://alexandria.netlify.com/* http://alexandria.atrost.com/:splat 301!
+http://alexandria.atrost.com/* https://alexandria.atrost.com/:splat 301!
+/*    /index.html   200
