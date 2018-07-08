@@ -1,10 +1,10 @@
 # Alexandria - A Book Tracking App
-Alexandria is a personal library app allowing you to track the books you're reading, want to read, and have read. It's my implementation of a project from the Udacity Frontend Developer Nanodegree program. 
+Alexandria is a personal library app allowing you to track the books you're reading, want to read, and have read. It's my implementation of a project from the Udacity Frontend Developer Nanodegree program.
 
-I did not use the provided Udacity starter code, as I wanted to start with a fresh 'create-react-app' and go from there. 
+I did not use the provided Udacity starter code, as I wanted to start with a fresh 'create-react-app' and go from there.
 
 ## Live Demo
-Alexandria is deployed to Netlify. You can check it out here: [https://alexandria.netlify.com/](https://alexandria.netlify.com/).
+Check out a live build of Alexandria here: [https://alexandria.atrost.com](https://alexandria.atrost.com)
 
 ## Installing
 This project was bootstrapped with create-react-app. You can install it easily so long as you have [npm](https://www.npmjs.com/get-npm) or [yarn](https://yarnpkg.com/en/docs/install) installed on your system. Once you do:
